@@ -1297,7 +1297,12 @@ function traerdef(stnode){
     var username = (snapshot.val() && snapshot.val().username) 
     || 'Anonymous';  general=snapshot.val();//generalkey=snapshot.key;
  generalkey=snapshot.key;
-    console.log("key "+snapshot+"       ln     "+general.length);
+
+ for(var i in general){
+
+  console.log("key "+snapshot+"       lnok     "+general[i].nm);
+ }
+
     iteracrea();
   });
 
@@ -1601,6 +1606,7 @@ nuevemail=gv("idnrefteEmai");
 
   firebase.database().ref().child("numeroreferidos").set(intnumreferido+1);
   firebase.database().ref().child("referidos").push(nuevoref1);
+  firebase.database().ref().child("telefonos").push(nuerefecelular);
 //  location.reload();
 setTimeout(function(){
 
