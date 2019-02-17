@@ -840,6 +840,10 @@ left: 0%;
         <br>
         <label for="other">Facesbook</label> <br>
         <input class="ideditexregvotan" type="text" id="idedtfaces" placeholder="Facesbook">
+        <br>
+        <input class="ideditexregvotan" type="text" id="idlng" placeholder="lng">
+        <br>
+        <input class="ideditexregvotan" type="text" id="idlat" placeholder="lat">
     </div>
 
 
@@ -1217,7 +1221,8 @@ function limpia(){
 
 
 
-
+setval("idlat");
+setval("idlng");
 
 
 
@@ -1340,6 +1345,10 @@ function getvalores(){
   fecha=getval("idedtfch");
 email=getval("idedtemail");
  celular=getval("idedtcelular");
+
+
+ vlat=getval("idlat");
+vlng=getval("idlng");
 
 
  faces=getval("idedtfaces");
