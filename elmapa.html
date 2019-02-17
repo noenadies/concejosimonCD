@@ -59,6 +59,8 @@ var arraytodomarksdirordenode=[];
 var idxllamtodotodo=0;
 var vllegueunsaves=0;
 var arraysupremo=[];
+var arraycontandovotantesplaza=[];
+var vcontandovotantesplaza=0;
 /*
 var varrayvotante={cedula:arraytodoordenode[i].cedula,departamento:arraytodoordenode[i].departamento,
     direccion:arraytodoordenode[i].direccion,
@@ -130,7 +132,7 @@ if(arraytodomarksdirordenode.length==todomksdir.des){
 
 
 function traetodoormarkdiredenadopor(st1){
-  firebase.database().ref("marksdirecci").orderByChild(String(st1)).on("child_added", function(snapshot) {
+  firebase.database().ref("plazaslatlng").orderByChild(String(st1)).on("child_added", function(snapshot) {
  // console.log(snapshot.val());
   //todovotantest=snapshot.val();
   arraytodomarksdirordenode.push(snapshot.val());
@@ -210,30 +212,81 @@ function llenonodovotante(){
 
 
 var ce=0;
+var vvotante;
+var idvotante=0;
+
+var io=0;
 function comparandodirecciones(){
   for(var i in arraytodomarksdirordenode){
 
-
+    io=0;
 
 for(var ii in arraytvotordenode){
 
    
-console.log(arraytvotordenode[ii].direccion);
+//console.log(arraytvotordenode[ii].direccion);
+if(arraytodomarksdirordenode[i].direccion==arraytvotordenode[ii].direccion){
+  console.log("son iguales  "+arraytodomarksdirordenode[i].direccion+" mk   vt "+arraytvotordenode[ii].direccion);
+
+
+vvotante={cedula:arraytvotordenode[ii].cedula,departamento:arraytvotordenode[ii].departamento,
+  direccion:arraytvotordenode[ii].direccion,
+email:arraytvotordenode[ii].email,
+facebook:arraytvotordenode[ii].facebook,
+fecha:arraytvotordenode[ii].fecha,
+idreferido:arraytvotordenode[ii].idreferido,
+mesa:arraytvotordenode[ii].mesa,
+movil:arraytvotordenode[ii].movil,
+municipio:arraytvotordenode[ii].municipio ,
+notareferido:arraytvotordenode[ii].notareferido,
+nombres:arraytvotordenode[ii].nombre ,
+notauser:arraytvotordenode[ii].notauser,
+referido:arraytvotordenode[ii].referido,
+puesto:arraytvotordenode[ii].puesto
+ 
+  
+  };
+
+  arraydireccion.push({idx:io,arrvotante:vvotante,direccion:arraytvotordenode[ii].direccion});
+  io=io+1;
+ 
+}
+
+
 
 
 }
+
+
+
+if(io>0){
+ // arraycontandovotantesplaza.push({idx:io-1,cantidadvotan:io,direccion:arraytvotordenode[ii].direccion,puesto:arraytvotordenode[ii].puesto});
+ arraysupremo.push({arrarydir:arraydireccion,direccion:arraydireccion[arraydireccion.length-1].direccion,
+lat:0,lng:0,cantidad:io});
+}
+else{
+  io=0;
+}
+
+
+
+
+
+
+
+
 
 
 
 ce=ce+1;
     
-console.log(arraytodomarksdirordenode[i].direccion);
+//console.log(arraydireccion);
 console.log("----------");
 
 }
-console.log("valor de ce  "+ce);
-
-  
+console.log( arraydireccion.length);
+console.log(   arraysupremo[1].direccion);
+siincimap=true;initMap();
 }
 
 
@@ -286,25 +339,41 @@ puesto:arraytodoordenode[i].puesto
 
 
 
-
+    var siincimap=false;
     var arraymarks=[];
+    var map;
+    var myLatLng= {lat: 4.693763, lng: -74.060678};
     function  fidbtatras(){
   window.location.href="index.html";
 
 }//4.693763, -74.060678
       function initMap() {
-        var myLatLng = {lat: 4.693763, lng: -74.060678};
 
-        var map = new google.maps.Map(document.getElementById('map'), {
+        if(siincimap){
+     myLatLng = {lat: 4.693763, lng: -74.060678};
+
+      map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           center: myLatLng
         });
 
-        arraymarks.push({direecion:1,marker:new google.maps.Marker({
-          position: myLatLng,
+        crearmarcas();
+        siincimap=false;
+        }
+
+      }
+
+var ab=0;
+      function crearmarcas(){
+
+        for(var i in  arraysupremo){ab=ab+1;
+
+var markx=new google.maps.Marker({
+          position: {lat: 4.69+ab/100, lng: -74.0606789+ab/100},
           map: map,
-          title: 'Hello World!'
-        })});
+          title:  String( arraysupremo[1].direccion)+" No Votantes: "+String( arraysupremo[1].cantidad)
+        });
+        arraymarks.push({direecion:1,marker:markx});
  
 
         arraymarks[arraymarks.length-1].marker.addListener('click', function(e) {
@@ -313,10 +382,7 @@ puesto:arraytodoordenode[i].puesto
          alert(this.title);
         });
 
-
-
-
-
+}
       }
     </script>
     <script async defer

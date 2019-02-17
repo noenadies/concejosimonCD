@@ -1265,9 +1265,10 @@ var nombre=nm1+nm2+ap1+ap2;
  var ntreferido="";
  var referido="";
  var idref="";
+ var vlat="";
+var vlng="";
 
-
-
+var objplazalatlng;
 
 
 
@@ -1366,12 +1367,14 @@ llenaregistro();
 
 
 function llenaregistro(){//nombre,cedula,dept,muni,puest,direcci,mesa, fecha,referido,emeail,faces,idref){
-persona={nombre:nombre,cedula:cedula,departamento:dep,municipio:muni,puesto:puest,
-direccion:direcci,mesa:mesa,fecha:fecha, referido:referido,movil:celular,email:email,facebook:faces,
-referido:referido,idreferido:idref,notauser:ntusuario,notareferido:ntreferido};
-firebase.database().ref().child("votantes").push(persona);
-
-firebase.database().ref().child("telefonos").push(String(celular));
+  persona={nombre:nombre,cedula:cedula,departamento:dep,municipio:muni,puesto:puest,
+    direccion:direcci,mesa:mesa,fechainsc:fecha, referido:referido,movil:celular,email:email,facebook:faces,
+    referido:referido,idreferido:idref,notauser:ntusuario,notareferido:ntreferido,lat:vlat,lng:vlng};
+    firebase.database().ref().child("votantes").push(persona);
+    
+    firebase.database().ref().child("telefonos").push(String(celular));
+     objplazalatlng={direccion:direcci,lat:vlat,lng:vlng}
+    firebase.database().ref().child("plazaslatlng").push(objplazalatlng);
 listo();
 
 }
