@@ -48,21 +48,116 @@
     <div id="map"></div>
     <script>
 
-
+var todomksdir={ant:0,des:0,ahora:0};
 
 var todovotantest={ant:0,des:0,ahora:0};
-var  arraypuestooder=[];
-var arraytodoordenode=[];
+var   arraytvotordenode=[];
+var arraytodomarksdirordenode=[];
   /*firebase.database().ref("votantes").orderByChild("puesto").on("child_added", function(snapshot) {
   console.log(snapshot.val());
   });*/
 var idxllamtodotodo=0;
 var vllegueunsaves=0;
-function traetodoordenadopor(st1){
+var arraysupremo=[];
+/*
+var varrayvotante={cedula:arraytodoordenode[i].cedula,departamento:arraytodoordenode[i].departamento,
+    direccion:arraytodoordenode[i].direccion,
+email:arraytodoordenode[i].email,
+facebook:arraytodoordenode[i].facebook,
+fecha:arraytodoordenode[i].fecha,
+idreferido:arraytodoordenode[i].idreferido,
+mesa:arraytodoordenode[i].mesa,
+movil:arraytodoordenode[i].movil,
+municipio:arraytodoordenode[i].municipio ,
+notareferido:arraytodoordenode[i].notareferido,
+nombres:arraytodoordenode[i].nombre ,
+notauser:arraytodoordenode[i].notauser,
+referido:arraytodoordenode[i].referido,
+puesto:arraytodoordenode[i].puesto
+ 
+  
+  }*/
+ var  arraydireccion=[];
+var vsupremo={array:1,direccion:1,idx:0};
+
+inictraemarksdirecci();
+
+function inictraemarksdirecci(){
+  traetodoormarkdiredenadopor("direccion");
+traetodoorvotadenadopor("direccion");
+floop();
+}
+
+
+
+
+function floop(){
+
+  
+setInterval(function(){ 
+
+if(arraytodomarksdirordenode.length==todomksdir.des){
+  setTimeout(function(){
+    todomksdir.des=0;
+    llenonodomarksdirec();
+   // elforordenatodopornodo();
+ //   creatd();
+  },2000)
+  }
+
+  if(arraytvotordenode.length==todovotantest.des){
+  setTimeout(function(){
+    todovotantest.des=0;
+    llenonodovotante();
+   // elforordenatodopornodo();
+ //   creatd();
+  },2000)
+  }
+
+
+
+
+
+
+
+
+ }, 3000);
+
+}
+
+
+
+
+
+function traetodoormarkdiredenadopor(st1){
+  firebase.database().ref("marksdirecci").orderByChild(String(st1)).on("child_added", function(snapshot) {
+ // console.log(snapshot.val());
+  //todovotantest=snapshot.val();
+  arraytodomarksdirordenode.push(snapshot.val());
+//  console.log("long  "+ todovotantest.des);
+ // elforordenatodopornodo();
+// creatd();
+todomksdir.ant=todomksdir.ahora;
+todomksdir.ahora=todomksdir.ahora+1;
+todomksdir.des=todomksdir.ahora;
+
+//console.log(snapshot.val().length);
+
+
+
+
+  });
+
+
+}
+
+
+
+function traetodoorvotadenadopor(st1){
   firebase.database().ref("votantes").orderByChild(String(st1)).on("child_added", function(snapshot) {
  // console.log(snapshot.val());
   //todovotantest=snapshot.val();
-  arraytodoordenode.push(snapshot.val());
+  arraytvotordenode.push(snapshot.val());
 //  console.log("long  "+ todovotantest.des);
  // elforordenatodopornodo();
 // creatd();
@@ -70,7 +165,7 @@ todovotantest.ant=todovotantest.ahora;
 todovotantest.ahora=todovotantest.ahora+1;
 todovotantest.des=todovotantest.ahora;
 
-
+console.log(snapshot.val().length);
 
 
 
@@ -83,17 +178,66 @@ todovotantest.des=todovotantest.ahora;
 
 
 
-setInterval(function(){ 
+function llenonodomarksdirec(){
+  /*
+   console.log(arraytodomarksdirordenode.length);
+  for(var i in arraytodomarksdirordenode){
 
-if(arraytodoordenode.length==todovotantest.des){
-  setTimeout(function(){
-    todovotantest.des=0;
-    elforordenatodopornodo();
-    creatd();
-  },2000)
-  }
+    
+    console.log(arraytodomarksdirordenode[i].direccion);
 
- }, 3000);
+
+  }*/
+   
+
+}
+
+
+
+function llenonodovotante(){
+  /*
+  console.log(arraytvotordenode.length);
+ for(var ii in arraytvotordenode){
+
+   
+   console.log(arraytvotordenode[ii].direccion);
+
+
+ }*/
+ comparandodirecciones();
+
+}
+
+
+var ce=0;
+function comparandodirecciones(){
+  for(var i in arraytodomarksdirordenode){
+
+
+
+for(var ii in arraytvotordenode){
+
+   
+console.log(arraytvotordenode[ii].direccion);
+
+
+}
+
+
+
+ce=ce+1;
+    
+console.log(arraytodomarksdirordenode[i].direccion);
+console.log("----------");
+
+}
+console.log("valor de ce  "+ce);
+
+  
+}
+
+
+
 
 function elforordenatodopornodo(){
 
