@@ -29,11 +29,121 @@
         z-index: 3;
       }
     </style>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyABOpIJyC5XDTAlqwVauPAZET6uUmeMbiQ",
+    authDomain: "concejosimoncd.firebaseapp.com",
+    databaseURL: "https://concejosimoncd.firebaseio.com",
+    projectId: "concejosimoncd",
+    storageBucket: "concejosimoncd.appspot.com",
+    messagingSenderId: "879095685896"
+  };
+  firebase.initializeApp(config);
+</script>
   </head>
   <body> <button id="idbtatras" onclick="fidbtatras();">Atras</button>
     <div id="map"></div>
     <script>
+
+
+
+var todovotantest={ant:0,des:0,ahora:0};
+var  arraypuestooder=[];
+var arraytodoordenode=[];
+  /*firebase.database().ref("votantes").orderByChild("puesto").on("child_added", function(snapshot) {
+  console.log(snapshot.val());
+  });*/
+var idxllamtodotodo=0;
+var vllegueunsaves=0;
+function traetodoordenadopor(st1){
+  firebase.database().ref("votantes").orderByChild(String(st1)).on("child_added", function(snapshot) {
+ // console.log(snapshot.val());
+  //todovotantest=snapshot.val();
+  arraytodoordenode.push(snapshot.val());
+//  console.log("long  "+ todovotantest.des);
+ // elforordenatodopornodo();
+// creatd();
+todovotantest.ant=todovotantest.ahora;
+todovotantest.ahora=todovotantest.ahora+1;
+todovotantest.des=todovotantest.ahora;
+
+
+
+
+
+
+  });
+
+
+}
+
+
+
+
+setInterval(function(){ 
+
+if(arraytodoordenode.length==todovotantest.des){
+  setTimeout(function(){
+    todovotantest.des=0;
+    elforordenatodopornodo();
+    creatd();
+  },2000)
+  }
+
+ }, 3000);
+
+function elforordenatodopornodo(){
+
+for(var i in arraytodoordenode){
     
+
+  arraypuestooder.push({cedula:arraytodoordenode[i].cedula,departamento:arraytodoordenode[i].departamento,
+    direccion:arraytodoordenode[i].direccion,
+email:arraytodoordenode[i].email,
+facebook:arraytodoordenode[i].facebook,
+fecha:arraytodoordenode[i].fecha,
+idreferido:arraytodoordenode[i].idreferido,
+mesa:arraytodoordenode[i].mesa,
+movil:arraytodoordenode[i].movil,
+municipio:arraytodoordenode[i].municipio ,
+notareferido:arraytodoordenode[i].notareferido,
+nombres:arraytodoordenode[i].nombre ,
+notauser:arraytodoordenode[i].notauser,
+referido:arraytodoordenode[i].referido,
+puesto:arraytodoordenode[i].puesto
+ 
+  
+  });
+
+    
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var arraymarks=[];
     function  fidbtatras(){
   window.location.href="index.html";
 
@@ -42,15 +152,27 @@
         var myLatLng = {lat: 4.693763, lng: -74.060678};
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 11,
+          zoom: 12,
           center: myLatLng
         });
 
-        var marker = new google.maps.Marker({
+        arraymarks.push({direecion:1,marker:new google.maps.Marker({
           position: myLatLng,
           map: map,
           title: 'Hello World!'
+        })});
+ 
+
+        arraymarks[arraymarks.length-1].marker.addListener('click', function(e) {
+        //  map.setZoom(8);
+         // map.setCenter(marker.getPosition());
+         alert(this.title);
         });
+
+
+
+
+
       }
     </script>
     <script async defer
