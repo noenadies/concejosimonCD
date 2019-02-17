@@ -647,11 +647,62 @@ z-index: -1;
 
 
 
+#idpaneordenartodo{
+
+  position: absolute;
+  top:8.3%;
+  left: 15.3%;
+  background-color: #019ad2;
+  opacity: 0.8;
+  width: 85%;
+  height: 92%;
+  z-index: 21;
+}
 
 
+.clbtbtorde{
+
+-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+
+  width: 23%;
+}
 
 
+#idbtordeporpuesto{
+position: absolute;
+top:3%;
+left: 0%;
 
+}
+
+#idbtordeporlider{
+position: absolute;
+top:10%;
+left: 0%;
+
+}
 
 
 </style>   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -699,6 +750,38 @@ z-index: -1;
 <div id="idquepaso"><h3 id="idh3">registrando</h3>
 <button id="idbtquepasocerrar" onclick="fbtquepasocerrar();">ok</button>
 </div>
+
+
+
+
+
+
+
+
+
+<div id="idpaneordenartodo">
+
+ <button id="idbtordeporpuesto" class="clbtbtorde" onclick="fidbtordeporpuesto();" >Ordenar Todo por  Puesto</button>
+ <button id="idbtordeporlider" class="clbtbtorde" onclick="fidbtordeporlider();" >Ordenar Todo por Lider</button>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1765,11 +1848,24 @@ function fenviarmensajes(){
 
 
 function fidprinttodoordenado(){
+document.getElementById("idpaneordenartodo").style.display="block";
+}
+//document.getElementById("idpaneordenartodo").style.display="none";
 
-  window.location.href="imprimetodoordenadonodo.html";
+
+function  menudeordenartodo(){
+
+
 }
 
+function fidbtordeporpuesto(){
+  window.location.href="imprimetodoordenadonodopuesto.html";
 
+}
+function fidbtordeporlider(){
+  window.location.href="imprimetodoordenadonodolider.html";
+
+}
 
 
 
