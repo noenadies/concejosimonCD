@@ -704,6 +704,15 @@ left: 0%;
 
 }
 
+#idbtordepordirecc{
+position: absolute;
+top:17%;
+left: 0%;
+
+}
+
+
+
 
 </style>   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -763,7 +772,7 @@ left: 0%;
 
  <button id="idbtordeporpuesto" class="clbtbtorde" onclick="fidbtordeporpuesto();" >Ordenar Todo por  Puesto</button>
  <button id="idbtordeporlider" class="clbtbtorde" onclick="fidbtordeporlider();" >Ordenar Todo por Lider</button>
-
+ <button id="idbtordepordirecc" class="clbtbtorde" onclick="fidbtordepordirecc();" >Ordenar Todo por Direccion</button>
 
 
 
@@ -1122,7 +1131,7 @@ document.getElementById("idquepaso").style.display="none";
 
 document.getElementById("idpanelbuscarvotantes").style.display="none";
 
-
+document.getElementById("idpaneordenartodo").style.display="none";
 
 
 
@@ -1160,6 +1169,7 @@ function fregvotantes(){
  //document.getElementById("iddbusvotante").style.display="none";
  
  document.getElementById("idpanelbuscarvotantes").style.display="none";
+ document.getElementById("idpaneordenartodo").style.display="none";
 
 }
 
@@ -1170,7 +1180,7 @@ function  fsecc2(){  document.getElementById("idpacpregvot").classList.remove("c
 
   document.getElementById("idpacpregvot3").style.display="none";
 
-
+  document.getElementById("idpaneordenartodo").style.display="none";
 
 }
 
@@ -1841,7 +1851,7 @@ window.print();
 
 function fenviarmensajes(){
 
-  window.location.href="https://noenadies.github.io/enviarmensajesimoncoce/";
+  window.location.href="enviarmensajes.html";
 }
 
 
@@ -1850,7 +1860,7 @@ function fenviarmensajes(){
 function fidprinttodoordenado(){
 document.getElementById("idpaneordenartodo").style.display="block";
 }
-//document.getElementById("idpaneordenartodo").style.display="none";
+
 
 
 function  menudeordenartodo(){
@@ -1869,6 +1879,10 @@ function fidbtordeporlider(){
 
 
 
+function fidbtordepordirecc(){
+  window.location.href="imprimetodoordenadonodopuestodireccion.html";
+
+}
 
 
 </script>
