@@ -1247,7 +1247,7 @@ llenaregistro();
 
 function llenaregistro(){//nombre,cedula,dept,muni,puest,direcci,mesa, fecha,referido,emeail,faces,idref){
 persona={nombre:nombre,cedula:cedula,departamento:dep,municipio:muni,puesto:puest,
-direccion:direcci,mesa:mesa,fechainsc:fecha, referido:referido,movil:celular,email:email,facebook:faces,
+direccion:direcci,mesa:mesa,fecha:fecha, referido:referido,movil:celular,email:email,facebook:faces,
 referido:referido,idreferido:idref,notauser:ntusuario,notareferido:ntreferido};
 firebase.database().ref().child("votantes").push(persona);
 
