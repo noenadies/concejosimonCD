@@ -262,7 +262,10 @@ puesto:arraytvotordenode[ii].puesto
 if(io>0){
  // arraycontandovotantesplaza.push({idx:io-1,cantidadvotan:io,direccion:arraytvotordenode[ii].direccion,puesto:arraytvotordenode[ii].puesto});
  arraysupremo.push({arrarydir:arraydireccion,direccion:arraydireccion[arraydireccion.length-1].direccion,
-lat:0,lng:0,cantidad:io});
+lat:arraytodomarksdirordenode[i].lat,lng:arraytodomarksdirordenode[i].lng,cantidad:io});
+vi=io;
+if(vi>0){console.log("vi     "+vi+"   "+io);}
+
 }
 else{
   io=0;
@@ -289,7 +292,7 @@ console.log(   arraysupremo[1].direccion);
 siincimap=true;initMap();
 }
 
-
+var vi=0;
 
 
 function elforordenatodopornodo(){
@@ -369,9 +372,9 @@ var ab=0;
         for(var i in  arraysupremo){ab=ab+1;
 
 var markx=new google.maps.Marker({
-          position: {lat: 4.69+ab/100, lng: -74.0606789+ab/100},
+          position: {lat:parseFloat(arraysupremo[i].lat), lng:parseFloat(arraysupremo[i].lng)},
           map: map,
-          title:  String( arraysupremo[1].direccion)+" No Votantes: "+String( arraysupremo[1].cantidad)
+          title:  String( arraysupremo[i].direccion)+" No Votantes: "+String( arraysupremo[i].cantidad)
         });
         arraymarks.push({direecion:1,marker:markx});
  
@@ -382,8 +385,13 @@ var markx=new google.maps.Marker({
          alert(this.title);
         });
 
-}
+}console.log("ab  "+ab);
       }
+
+
+
+
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV4ya46Yoag-iGeJb5SUwZ2q1Irx0UjnU&callback=initMap">
