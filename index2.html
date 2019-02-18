@@ -1037,6 +1037,13 @@ left:55%;
 </div>
 
 
+<button class="accordion">Como vamos</button>
+<div class="panel">
+
+    <div class="accordion2" id="idprinttmapa" onclick="fcomovamos();">Como vamos</div>
+
+</div>
+
 
 
 </div>
@@ -1586,7 +1593,7 @@ if(String(mesa)==""){stringmensajes=stringmensajes+" falta la mesa ";}
 if(String(nombre)==""){stringmensajes=stringmensajes+" falta el nombre ";boolsipuedosubir=false} 
 document.getElementById("idmensaje").style.display="block";
 if(boolsipuedosubir){document.getElementById("idbtmensajeaceptar").style.display="block";}
-else{document.getElementById("idbtmensajeaceptar").style.display="none";}
+else{document.getElementById("idbtmensajeaceptar").style.display="block";}
 escribeidpmensaje(stringmensajes)
 
 
@@ -2193,6 +2200,15 @@ function escribeidpmensaje(st){
 
   document.getElementById("idpmensaje").innerHTML=st;
 }
+
+
+
+function fcomovamos(){
+  window.location="comovamoschart.html";
+
+}
+
+
 
 </script>
 
