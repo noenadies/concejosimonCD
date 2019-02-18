@@ -108,6 +108,7 @@ color: rgb(255, 255, 255)
 
 
     </style>
+</style><script src="jquery-3.3.1.min.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
 <script>
@@ -136,42 +137,18 @@ color: rgb(255, 255, 255)
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
         
         <table id="myTable">
-          <tr class="header">
-            <th style="width:60%;">Name</th>
-            <th style="width:40%;">Country</th>
-          </tr>
-          <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Berglunds snabbkop</td>
-            <td>Sweden</td>
-          </tr>
-          <tr>
-            <td>Island Trading</td>
-            <td>UK</td>
-          </tr>
-          <tr>
-            <td>Koniglich Essen</td>
-            <td>Germany</td>
-          </tr>
-          <tr>
-            <td>Laughing Bacchus Winecellars</td>
-            <td>Canada</td>
-          </tr>
-          <tr>
-            <td>Magazzini Alimentari Riuniti</td>
-            <td>Italy</td>
-          </tr>
-          <tr>
-            <td>North/South</td>
-            <td>UK</td>
-          </tr>
-          <tr>
-            <td>Paris specialites</td>
-            <td>France</td>
-          </tr>
+            <tr class="header">
+                <th style="width:12.500000000000000%;">Nombre</th>
+                <th style="width:12.500000000000000%;">Cedula</th>
+                <th style="width:12.500000000000000%;">Telefono</th>
+                <th style="width:12.500000000000000%;">Puesto</th>
+                <th style="width:12.500000000000000%;">Direccion</th>
+                <th style="width:12.500000000000000%;">Mesa</th>
+                <th style="width:12.500000000000000%;">Lider</th>
+                <th style="width:12.500000000000000%;">Telefono Lider</th>
+          
+          
+            </tr>
         </table>
         
         <script>
@@ -489,6 +466,105 @@ puesto:arraytodoordenode[i].puesto
 
 
 
+var idx=0;
+
+var stestructuratd="";
+var vllegueunsaves=0;
+
+function creatd(thi){
+
+if(vllegueunsaves>0){
+location.reload();
+//alert(vllegueunsaves);
+}
+vllegueunsaves=vllegueunsaves+1;
+
+
+stestructuratd="";
+
+console.log(thi.arraycondire[0].arrvotante.direccion);
+for(var i in thi.arraycondire){
+
+
+if(thi.arraycondire[i].arrvotante.direccion==thi.direccion){
+
+
+  stestructuratd="<tr ><td onclick="+'yocelda(thi);'+"id="+String(idx)+" class='cltd'>Nombre:<br>"+ String(idx)+" ->"+String(thi.arraycondire[i].arrvotante.nombres)+"</td>"+
+"<td class='cltd'>Cedula:<br>"+String(thi.arraycondire[i].arrvotante.cedula)+"</td>"+
+" <td class='cltd'>Telefono:<br>"+String(thi.arraycondire[i].arrvotante.movil)+"</td>"+
+"  <td class='cltd'>Puesto:<br>"+String(thi.arraycondire[i].arrvotante.puesto)+"</td>"+
+ "<td class='cltd'>Direccion:<br>"+String(thi.arraycondire[i].arrvotante.direccion)+"</td>"+
+" <td class='cltd'>Mesa:<br>"+String(thi.arraycondire[i].arrvotante.mesa)+"</td>"+
+" <td class='cltd'>Lider:<br>"+String(thi.arraycondire[i].arrvotante.referido)+"</td>"+
+" <td class='cltd'>"+String("Telefono Lider")+"<br>"+String(thi.arraycondire[i].arrvotante.movil)+"</td></tr>";
+
+
+
+
+idx=idx+1;
+$("#myTable").append(stestructuratd);
+
+
+
+}
+
+
+
+
+}
+/*
+for(var i  in thi.arraycondire){
+
+  stestructuratd="<tr ><td onclick="+'yocelda(thi);'+"id="+String(idx)+" class='cltd'>Nombre:<br>"+String(thi.arraycondire.nombres)+" : "+String(idx)+ +"</td>"+
+"<td class='cltd'>Cedula:<br>"+String(thi.arraycondire.cedula)+"</td>"+
+" <td class='cltd'>Telefono:<br>"+String(thi.arraycondire.movil)+"</td>"+
+"  <td class='cltd'>Puesto:<br>"+String(thi.arraycondire.puesto)+"</td>"+
+ "<td class='cltd'>Direccion:<br>"+String(thi.arraycondire.direccion)+"</td>"+
+" <td class='cltd'>Mesa:<br>"+String(thi.arraycondire.mesa)+"</td>"+
+" <td class='cltd'>Lider:<br>"+String(thi.arraycondire.referido)+"</td>"+
+" <td class='cltd'>"+String("Telefono Lider")+"<br>"+String(thi.arraycondire.movil)+"</td></tr>";
+
+
+
+
+idx=idx+1;
+$("#myTable").append(stestructuratd);
+
+
+
+}
+
+
+*/
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -533,6 +609,9 @@ var ab=0;
 var markx=new google.maps.Marker({
           position: {lat:parseFloat(arraysupremo[i].lat), lng:parseFloat(arraysupremo[i].lng)},
           map: map,
+          arraycondire:arraysupremo[i].arrarydir,
+          cantidad:String( arraysupremo[i].cantidad),
+       direccion:String( arraysupremo[i].direccion)   ,
           title:  String( arraysupremo[i].direccion)+" No Votantes: "+String( arraysupremo[i].cantidad)
         });
         arraymarks.push({direecion:1,marker:markx});
@@ -541,8 +620,9 @@ var markx=new google.maps.Marker({
         arraymarks[arraymarks.length-1].marker.addListener('click', function(e) {
         //  map.setZoom(8);
          // map.setCenter(marker.getPosition());
-         alert(this.title);
+       //  alert(this.title);
          muestrmenu();
+         creatd(this);
         });
 
 }
