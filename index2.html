@@ -1506,7 +1506,12 @@ function funallamadalnodopl(nodo){
 function fdecadena(){
 
 
-  
+  if(vlng>0){
+    vlng=String(parseFloat(vlng)*-1);
+  }
+  else{
+   
+  }
 
   if(bollvo&&bollpl&&bollte){
 
@@ -1542,7 +1547,7 @@ vunallamdaalnodote=[];} else{stringmensajes=stringmensajes+"<br> "+"ese no es un
 for(var i in vunallamdaalnodovo){
   if(vunallamdaalnodovo[i].cedula!=cedula){
     objplazalatlng={direccion:direcci,lat:vlat,lng:vlng,puesto:puest}
-stringmensajes="Lea bien atentamente si pulsa aceptar se  subra  la informacion"
+stringmensajes="Aceptar para subir la informacion"
 
 //console.log("aca  "+cedula+"  " +vunallamdaalnodovo[i].cedula);
   }

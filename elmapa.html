@@ -620,8 +620,9 @@ var ab=0;
       function crearmarcas(){
 
         for(var i in  arraysupremo){ab=ab+1;
-          console.log(arraysupremo[i].puesto);
+          console.log(i+"   " + arraysupremo[i].lat+ arraysupremo[i].lng);
 var markx=new google.maps.Marker({
+
           position: {lat:parseFloat(arraysupremo[i].lat), lng:parseFloat(arraysupremo[i].lng)},
           map: map,
           puesto:arraysupremo[i].puesto,
@@ -643,7 +644,7 @@ var markx=new google.maps.Marker({
          creatd(this);
         });
 
-}
+} console.log("arraymarks  c  "+  arraymarks.length);
       }
 var vw= window.innerWidth;
 var vh= window.innerHeight;
