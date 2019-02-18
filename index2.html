@@ -1563,10 +1563,10 @@ vunallamdaalnodovo=[];
 }
 
 }*/
-
+direcci=String(direcci);
 for(var i  in vunallamdaalnodopl){
-if(vunallamdaalnodopl[i].direccion==direcci){}
-else{     objplazalatlng={direccion:direcci,lat:vlat,lng:vlng,puesto:puest}
+if(vunallamdaalnodopl[i].direccion==direcci){nobooexisteplaza=false;console.log("nobooexisteplaza"+nobooexisteplaza);}
+else{ nobooexisteplaza=true;    objplazalatlng={direccion:direcci,lat:vlat,lng:vlng,puesto:puest}
 
 vunallamdaalnodopl=[];
 }
@@ -1608,13 +1608,14 @@ escribeidpmensaje("sin registro ")
 
 
 
-
+var nobooexisteplaza=false;
 
 var stringmensajes="";
 function elquesubefirebasesivotante(){
   firebase.database().ref().child("telefonos").push(String(celular));
 firebase.database().ref().child("votantes").push(persona);
-firebase.database().ref().child("plazaslatlng").push(objplazalatlng);
+if(nobooexisteplaza){firebase.database().ref().child("plazaslatlng").push(objplazalatlng); nobooexisteplaza=false;}
+
 listo();
 }
 
