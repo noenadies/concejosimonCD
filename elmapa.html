@@ -616,7 +616,7 @@ var ab=0;
       function crearmarcas(){
 
         for(var i in  arraysupremo){ab=ab+1;
-
+          console.log(arraysupremo[i].puesto);
 var markx=new google.maps.Marker({
           position: {lat:parseFloat(arraysupremo[i].lat), lng:parseFloat(arraysupremo[i].lng)},
           map: map,
@@ -628,14 +628,14 @@ var markx=new google.maps.Marker({
          
         });
         arraymarks.push({direecion:1,marker:markx});
- 
+
 
         arraymarks[arraymarks.length-1].marker.addListener('click', function(e) {
         //  map.setZoom(8);
          // map.setCenter(marker.getPosition());
        //  alert(this.title);
          muestrmenu();
-         texth3("Puesto "+this.puesto+" (Numero de votantes) "+this.cantidad+""+"en la direccion " +this.direccion+" ");
+         texth3("Puesto "+this.puesto+" Numero de votantes "+this.cantidad+""+"  en la direccion " +this.direccion+" ");
          creatd(this);
         });
 
