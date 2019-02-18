@@ -99,7 +99,15 @@ color: rgb(255, 255, 255)
 }
 
 
-
+.cltd{
+  text-align: left;
+  padding: 0px;
+  width:12.500000000000000%;
+  height: 30px;
+  text-align: center;
+  font-size: 10px;
+  border: 1px dashed rgba(28,110,164,0.67);
+}
 
 
 
@@ -132,9 +140,9 @@ color: rgb(255, 255, 255)
 
 
 
-        <h2>My Customers</h2>
+        <h3 id="idh3"></h3>
 
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+        <input onchange="myFunction()" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
         
         <table id="myTable">
             <tr class="header">
@@ -398,9 +406,10 @@ puesto:arraytvotordenode[ii].puesto
 if(io>0){
  // arraycontandovotantesplaza.push({idx:io-1,cantidadvotan:io,direccion:arraytvotordenode[ii].direccion,puesto:arraytvotordenode[ii].puesto});
  arraysupremo.push({arrarydir:arraydireccion,direccion:arraydireccion[arraydireccion.length-1].direccion,
-lat:arraytodomarksdirordenode[i].lat,lng:arraytodomarksdirordenode[i].lng,cantidad:io});
+lat:arraytodomarksdirordenode[i].lat,lng:arraytodomarksdirordenode[i].lng,cantidad:io,puesto:arraytvotordenode[ii].puesto});
 vi=io;
-if(vi>0){console.log("vi     "+vi+"   "+io);}
+if(vi>0){////console.log("vi     "+vi+"   "+io);
+}
 
 }
 else{
@@ -420,11 +429,11 @@ else{
 ce=ce+1;
     
 //console.log(arraydireccion);
-console.log("----------");
+////console.log("----------");
 
 }
-console.log( arraydireccion.length);
-console.log(   arraysupremo[1].direccion);
+//console.log( arraydireccion.length);
+////console.log(   arraysupremo[1].direccion);
 siincimap=true;initMap();
 }
 
@@ -475,14 +484,16 @@ function creatd(thi){
 
 if(vllegueunsaves>0){
 location.reload();
-//alert(vllegueunsaves);
+//$("#myTable").remove();
+//vllegueunsaves=0;
+//alert(vllegueunsaves);//
 }
 vllegueunsaves=vllegueunsaves+1;
 
 
 stestructuratd="";
 
-console.log(thi.arraycondire[0].arrvotante.direccion);
+//console.log(thi.arraycondire[0].arrvotante.direccion);
 for(var i in thi.arraycondire){
 
 
@@ -609,6 +620,7 @@ var ab=0;
 var markx=new google.maps.Marker({
           position: {lat:parseFloat(arraysupremo[i].lat), lng:parseFloat(arraysupremo[i].lng)},
           map: map,
+          puesto:arraysupremo[i].puesto,
           arraycondire:arraysupremo[i].arrarydir,
           cantidad:String( arraysupremo[i].cantidad),
        direccion:String( arraysupremo[i].direccion)   ,
@@ -622,6 +634,7 @@ var markx=new google.maps.Marker({
          // map.setCenter(marker.getPosition());
        //  alert(this.title);
          muestrmenu();
+         texth3("Puesto "+this.puesto+" (Numero de votantes) "+this.cantidad+""+"en la direccion " +this.direccion+" ");
          creatd(this);
         });
 
@@ -629,13 +642,20 @@ var markx=new google.maps.Marker({
       }
 var vw= window.innerWidth;
 var vh= window.innerHeight;
-document.getElementById("idmenulateral").style.width=String(vw*0.0)+"px";;
+document.getElementById("idmenulateral").style.display="none";
 function muestrmenu(){
+  document.getElementById("idmenulateral").style.display="block"
   document.getElementById("idmenulateral").style.width=String(vw*0.70)+"px";
 }
 
 function fidbcerrarmenu(){
-  document.getElementById("idmenulateral").style.width=String(vw*0.0)+"px";
+
+ // document.getElementById("idmenulateral").style.width=String(vw*0.0)+"px";
+ document.getElementById("idmenulateral").style.display="none";
+
+}
+function texth3(st){
+  document.getElementById("idh3").innerHTML=st;
 }
 
     </script>
