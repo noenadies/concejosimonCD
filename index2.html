@@ -1495,13 +1495,13 @@ function funallamadalnodote(nodo){
 }
 function funallamadalnodopl(nodo){
   firebase.database().ref().child(String(nodo)).on("value", function(snapshot) {
-    vunallamdaalnodopl=[];
+  //  vunallamdaalnodopl=[];
     bollpl=true;
-    vunallamdaalnodo=snapshot.val();
+    vunallamdaalnodopl=snapshot.val();
  //console.log("viene de  fire una llamada alnodo  pl");   
 // console.log(vunallamdaalnodopl);
- fdecadena();
- 
+ fdecadena(); console.log(321);
+
 }, function (errorObject) {
  // console.log("The read failed: " + errorObject.code);
 });
@@ -1569,13 +1569,17 @@ stringmensajes="Lea bien atentamente si pulsa aceptar se  subra  la informacion"
 vunallamdaalnodovo=[];
 }
 
-}*/
+}*/ //Transversal 78 C No. 6 D - 49
 direcci=String(direcci);
 for(var i  in vunallamdaalnodopl){
-if(vunallamdaalnodopl[i].direccion==direcci){nobooexisteplaza=false;console.log("nobooexisteplaza"+nobooexisteplaza);}
+if(vunallamdaalnodopl[i].direccion==direcci){
+
+  nobooexisteplaza=false;}
 else{ nobooexisteplaza=true;    objplazalatlng={direccion:direcci,lat:vlat,lng:vlng,puesto:puest}
 
-vunallamdaalnodopl=[];
+
+
+
 }
 
 }
@@ -1606,7 +1610,6 @@ escribeidpmensaje("sin registro ")
 
 
 
-
 }
 
 
@@ -1624,6 +1627,7 @@ firebase.database().ref().child("votantes").push(persona);
 if(nobooexisteplaza){firebase.database().ref().child("plazaslatlng").push(objplazalatlng); nobooexisteplaza=false;}
 
 listo();
+boolsipuedosubir=false;
 }
 
 function llenaregistro(){//nombre,cedula,dept,muni,puest,direcci,mesa, fecha,referido,emeail,faces,idref){
