@@ -92,6 +92,9 @@ left: 15%;
 	<button onclick="fatras();"  class="myButton" id="idbtatras">atras</button>
 
 	<script>
+
+var porcemeta="";
+var porcwvotante="";
 var configgrafgraf ;
 var config = {
     apiKey: "AIzaSyABOpIJyC5XDTAlqwVauPAZET6uUmeMbiQ",
@@ -121,8 +124,8 @@ function fmeta(){
 
 
 
-
-
+var porcemeta=String(vmeta/vmeta*100)+"%";
+var porcwvotante=String(numerodevotantes/vmeta*100)+"%";
 
 
   function fllamavo(){
@@ -133,11 +136,15 @@ for(var i in todovotantes){
 	numerodevotantes=numerodevotantes+1;
 }
 
+
+ porcemeta=String(vmeta/vmeta*100)+"%";
+ porcwvotante=String(numerodevotantes/vmeta*100)+"%";
+
 configgrafgraf= {
 			data: {
 				datasets: [{
 					data: [
-						10,
+						vmeta,
 			numerodevotantes
 					],
 					backgroundColor: [
@@ -148,8 +155,8 @@ configgrafgraf= {
 					label: 'My dataset' // for legend
 				}],
 				labels: [
-					'Meta',
-					'Presente'
+					'Meta: ' +porcemeta,
+					'Presente:'+porcwvotante
 				
 				]
 			},
