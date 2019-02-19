@@ -1509,8 +1509,8 @@ function funallamadalnodopl(nodo){
 }
 
 
-
-
+var estacedula=false;
+var intcedula=1;
 function fdecadena(){
 
 
@@ -1532,6 +1532,7 @@ function fdecadena(){
 
 
 for(var i  in vunallamdaalnodote){
+
 if(vunallamdaalnodote[i]==celular){ stringmensajes= stringmensajes+"existe un telefono asi "}
 else{   
   if(vunallamdaalnodote[i]==""){}
@@ -1550,17 +1551,26 @@ vunallamdaalnodote=[];} else{stringmensajes=stringmensajes+"<br> "+"ese no es un
 
 //console.log(" es vunallamdaalnodovo");
 //console.log(cedula);
-
+ estacedula=false;
 
 for(var i in vunallamdaalnodovo){
-  if(vunallamdaalnodovo[i].cedula!=cedula){
+
+  intcedula=parseInt(vunallamdaalnodovo[i].cedula)/parseInt(cedula)-1;
+
+  if(vunallamdaalnodovo[i].cedula===cedula&&!estacedula){
+   estacedula=true;
+    
+    stringmensajes=stringmensajes+" <br>"+ "ya  tenenmos esa  cedula registrada ";bolyacedula=true;}
+
+
+
+  if(vunallamdaalnodovo[i].cedula!==cedula&&!estacedula){
     objplazalatlng={direccion:direcci,lat:vlat,lng:vlng,puesto:puest}
 stringmensajes="Aceptar para subir la informacion"
-
+bolyacedula=false;
 //console.log("aca  "+cedula+"  " +vunallamdaalnodovo[i].cedula);
   }
-  else{stringmensajes=stringmensajes+" <br>"+ "ya  tenenmos esa  cedula registrada ";}
-
+ 
 }
 
 /*for(var i  in vunallamdaalnodovo){
@@ -1609,7 +1619,8 @@ document.getElementById("idmensaje").style.display="block";
 escribeidpmensaje("sin registro ")
 }
 
-
+if(bolyacedula){document.getElementById("idbtmensajeaceptar").style.display="none";}
+else{document.getElementById("idbtmensajeaceptar").style.display="block";}
 
 }
 
@@ -1617,7 +1628,7 @@ escribeidpmensaje("sin registro ")
 
 
 
-
+var bolyacedula=true;
 
 var nobooexisteplaza=false;
 
