@@ -1037,7 +1037,8 @@ function edit(yo){
   }
 
   else{document.getElementById("idmodalmenueditar").style.display="block";
-  document.getElementById("idmenueditarp").innerHTML=  yo.innerHTML+""+idvotantecrud;
+ // document.getElementById("idmenueditarp").innerHTML=  yo.innerHTML+""+idvotantecrud;
+ document.getElementById("idmenueditarp").innerHTML= "Menu CRUD";
   }
   }
 else{
@@ -1287,7 +1288,7 @@ function escribeenediedi(){
   edreferido=arrcrudvotant.referido;
   edfechainsc=arrcrudvotant.fechainsc;
 
-   console.log(" nm " +ednombre);
+  // console.log(" nm " +ednombre);
   }
   setv("input1",ednombre);
   setv("input2",edcedula);
