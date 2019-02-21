@@ -639,8 +639,11 @@ var markx=new google.maps.Marker({
         //  map.setZoom(8);
          // map.setCenter(marker.getPosition());
        //  alert(this.title);
-         muestrmenu();
-         texth3("Puesto "+this.puesto+" Numero de votantes "+this.cantidad+""+"  en la direccion " +this.direccion+" ");
+         muestrmenu(this);
+     
+         
+   //      texth3("Puesto "+this.puesto+" Numero de votantes "+this.cantidad+""+"  en la direccion " +this.direccion+" ");
+  // texth3(this.title);
          creatd(this);
         });
 
@@ -649,7 +652,7 @@ var markx=new google.maps.Marker({
 var vw= window.innerWidth;
 var vh= window.innerHeight;
 document.getElementById("idmenulateral").style.display="none";
-function muestrmenu(){
+function muestrmenu(thi){   texth3(thi.title);
   document.getElementById("idmenulateral").style.display="block"
   document.getElementById("idmenulateral").style.width=String(vw*0.70)+"px";
 }
