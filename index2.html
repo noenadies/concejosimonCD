@@ -797,6 +797,157 @@ left:55%;
 
 
 
+
+
+
+#idpanelpuedoabrircrud{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-color: #0688fa;
+  width: 100%;
+  height: 100%;
+z-index: 43;
+
+
+
+-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+
+
+
+
+
+
+
+}
+
+
+
+#idinputpuedoabririnombre{
+
+  position: absolute;
+  top: 40%;
+  left: 45%;
+
+}
+
+
+
+#idinputpuedoabriripass{
+
+  position: absolute;
+  top: 50%;
+  left: 45%;
+
+}
+
+.clputpuedoabririnombre{
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+	background-color:#ffffff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.clputpuedoabririnombre:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+	background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+	background-color:#f6f6f6;
+}
+.clputpuedoabririnombre:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+#idpabrirpanelcrud{
+
+  position:absolute;
+  top: 25%;
+  left: 54%;
+  text-align: center;
+   font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
+
+
+
+
+
+
+
+
+#idinputpuedoabririBTok{
+
+  position: absolute;
+  top: 69%;
+  left: 54%;
+  width: 10%;
+
+}
+
+
+#idlabepnombre{
+  position: absolute;
+  top: 40%;
+  left: 40%;
+
+}
+
+#idlabeppass{
+
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+
+
+
 </style>   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
   
@@ -834,7 +985,12 @@ left:55%;
 
 
 </head>
-<body>  
+<body>  <dic id="idpanelpuedoabrircrud"> <p id="idpabrirpanelcrud"> CRUD USER</p>
+  <label id="idlabepnombre" for="male">User:</label><input class="clputpuedoabririnombre" id="idinputpuedoabririnombre" type="text"  value="" placeholder="user">
+  <label id="idlabeppass" for="male">Pass:</label><input class="clputpuedoabririnombre" id="idinputpuedoabriripass" type="password"  value="" placeholder="pass">
+  <button class="clputpuedoabririnombre" id="idinputpuedoabririBTatras"  onclick="fabrircrudatrasl();" >Atras</button>
+  <button class="clputpuedoabririnombre" id="idinputpuedoabririBTok"  onclick="fabrircrudreal();">Ok</button>
+</dic>
 
   <div id="idmensaje"> <p id="idpmensaje">mensaje  aca</p> <button class="myButtonmensaje" id="idbtmensajeaceptar" onclick="fidbtmensajeaceptar()">Aceptar</button>
   
@@ -2232,10 +2388,63 @@ function fcomovamos(){
 
 }
 
+var soyadmimin=true;
 function fccrud(){
 
+
+evalualfirecrud();
+}
+document.getElementById("idpanelpuedoabrircrud").style.display="none";
+
+
+var puedeabrircrudnombre="";
+var puedeabriricurdpass="";
+function fabrircrudreal(){
+
+  puedeabrircrudnombre=document.getElementById("idinputpuedoabririnombre").value;
+  puedeabriricurdpass=document.getElementById("idinputpuedoabriripass").value;
+for(var i in arrayadmin){
+  if(arrayadmin[i].nombre==puedeabrircrudnombre&&arrayadmin[i].clave==puedeabriricurdpass){
+    soyadmimin=true;
+  }
+}
+  if(soyadmimin){
+    soyadmimin=false;
   window.location="crud.html";
 }
+ 
+}
+
+
+function fabrircrudatrasl(){
+
+  document.getElementById("idpanelpuedoabrircrud").style.display="none";
+}
+
+
+var arrayadmin;
+function evalualfirecrud(){ 
+  firebase.database().ref().child(String("admin")).
+  once('value').then(function(snapshot) {
+    var username = (snapshot.val() && snapshot.val().username) 
+    || 'Anonymous'; 
+ arrayadmin=snapshot.val();
+
+
+ document.getElementById("idpanelpuedoabrircrud").style.display="block";
+  
+  });
+
+}
+
+
+
+
+
+
+
+
+
 
 </script>
 
