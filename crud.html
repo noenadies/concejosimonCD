@@ -1260,7 +1260,7 @@ movil: edmovil,
   nombre: ednombre,
   notareferido: ednotareferido,
   notauser: ednotauser,
-  puesto: ednotauser,
+  puesto:edpuesto,
 referido: edreferido
 }
 );
@@ -1336,8 +1336,10 @@ function gettodoedi(){
   edmovil=getved("input8",edmovil);
   edmunicipio=getved("input4",edmunicipio);
   ednotareferido= getved("input15",ednotareferido);
-  ednotauser=addEventListener("input14",ednotauser);
+  //ednotauser=addEventListener("input14",ednotauser);
  
+
+  ednotauser=getved("input14",ednotauser);
   edreferido=getved("input13",edreferido);
   edfechainsc=getved("input16",edfechainsc);
   edpuesto= getved("input5",edpuesto);
@@ -1346,12 +1348,31 @@ function gettodoedi(){
 }
 
 
+
 function traecrud(){
   gettodoedi();
   
-  edsubeperso();
-alert(542);
- firebase.database().ref("votantes").child(String(idvotantecrud)).set(edpersona);   
+ // edsubeperso();
+
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("cedula").set(edcedula);  
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("departamento").set(eddepartamento); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("direccion").set(eddireccion); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("email").set(edemail); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("facebook").set(edfacebook); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("fechainsc").set(edfechainsc); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("idreferido").set(edidreferido); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("lat").set(edlat); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("lng").set(edlng); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("mesa").set(edmesa); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("movil").set(edmovil); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("municipio").set(edmunicipio); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("nombre").set(ednombre); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("notareferido").set( ednotareferido); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("notauser").set( ednotauser); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("puesto").set(edpuesto); 
+firebase.database().ref("votantes").child(String(idvotantecrud)).child("referido").set( edreferido); 
+ //firebase.database().ref("votantes").child(String(idvotantecrud)).set(edpersona);  
+ //console.log(edpersona); 
 }
 
 
