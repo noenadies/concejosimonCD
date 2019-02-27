@@ -144,7 +144,45 @@
   width: 83%;
   height: 90%;;
 }
-
+#idbutcerrarmaplatlngopen{
+	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+	background:-moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100',GradientType=0);
+	background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+  position: absolute;
+  top: 76%;
+  left: 30%;
+ 
+  opacity: 0.9;
+  z-index: 12;
+  width: 50px;
+  height: 50px;
+font-size: 10px;
+border-radius: 50%;
+text-align: center;
+padding: 1px;
+margin: auto;
+}
 
 
 #idpanelreferidos{
@@ -948,6 +986,102 @@ z-index: 43;
 
 
 
+
+
+
+
+
+#idfaltomap{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 44;
+  width: 100%;
+height: 100%;
+  background-color: #000000;
+}
+
+#map{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 45;
+  width: 100%;
+height: 100%;
+  background-color: #000000;
+}
+
+#floating-panel {
+        position: absolute;
+        top: 20%;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+        z-index: 46;
+        width: 25%;
+        height: 20%;
+      }
+#address{
+
+  width: 100%;
+}
+
+
+      #idbutcerrarmaplatlng{
+        -moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+	background:-moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100',GradientType=0);
+	background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+
+position: absolute;
+top: 5%;
+left: 90%;
+width: 100px;
+height: 60px;
+z-index: 65;
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
   
@@ -985,7 +1119,30 @@ z-index: 43;
 
 
 </head>
-<body>  <dic id="idpanelpuedoabrircrud"> <p id="idpabrirpanelcrud"> CRUD USER</p>
+<body>
+
+  
+  <div id="idfaltomap">
+
+<button id="idbutcerrarmaplatlng" onclick="fidbutcerrarmaplatlng();">Cerrar</button>
+      <div id="floating-panel">
+          <input id="address" type="textbox" value="Sydney, NSW">  <br>  <br>
+          <input id="submit" type="button" value="Geocode">
+        </div>
+        <div id="map"></div>
+
+
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <dic id="idpanelpuedoabrircrud"> <p id="idpabrirpanelcrud"> CRUD USER</p>
   <label id="idlabepnombre" for="male">User:</label><input class="clputpuedoabririnombre" id="idinputpuedoabririnombre" type="text"  value="" placeholder="user">
   <label id="idlabeppass" for="male">Pass:</label><input class="clputpuedoabririnombre" id="idinputpuedoabriripass" type="password"  value="" placeholder="pass">
   <button class="clputpuedoabririnombre" id="idinputpuedoabririBTatras"  onclick="fabrircrudatrasl();" >Atras</button>
@@ -1048,7 +1205,7 @@ z-index: 43;
   <div  class="accordion3" >
     <div>
 
-        <label for="other">Primer Nombre</label>
+        <label for="other">Primer Nombre</label>  <br>
         <input class="ideditexregvotan" type="text" id="idedtnm1" placeholder="Primer Nombre"><br>
         <label for="other">Segundo Nombre</label>
         <input  class="ideditexregvotan" type="text" id="idedtnm2" placeholder="Segundo Nombre"><br>
@@ -1057,8 +1214,8 @@ z-index: 43;
         <label for="other">Segundo Apellido</label>
         <input class="ideditexregvotan" type="text" id="idedtap2" placeholder="Segundo Apellido"> <br>
         <label for="other">Cedula</label><br>
-        <input class="ideditexregvotan" type="text" id="idedtced" placeholder="Cedula">     <br>
-        <label for="other">Departamento</label>
+        <input class="ideditexregvotan" type="text" id="idedtced" placeholder="Cedula">      <br> 
+        <label for="other">Departamento</label>  <br>
         <input class="ideditexregvotan" type="text" id="idedtdep" placeholder="Departamento"> <br>
         <label for="other">Municipio</label><br>
         <input class="ideditexregvotan" type="text" id="idedtmun" placeholder="Municipio">
@@ -1089,6 +1246,8 @@ z-index: 43;
         <input class="ideditexregvotan" type="text" id="idlng" placeholder="lng">
         <br>
         <input class="ideditexregvotan" type="text" id="idlat" placeholder="lat">
+
+        <button id="idbutcerrarmaplatlngopen" onclick="fidbutcerrarmaplatlngopen();">Ubicar</button>
     </div>
 
 
@@ -1105,7 +1264,7 @@ z-index: 43;
     <div>
         <br><br><br><br>
         <label for="other">Lideres</label>
-        <input class="ideditexregvotan" type="text" id="idedtreferido" placeholder="Referido"><br>
+        <input class="ideditexregvotan" type="text" id="idedtreferido" placeholder="Lider"><br>
         <label for="other">id Ref</label><br>
         <input class="ideditexregvotan" type="text" id="idedtidreferido" placeholder="id"><br>
 
@@ -1114,7 +1273,7 @@ z-index: 43;
         <label for="other">Nota al Usuario</label>
         <input class="ideditexregvotan" type="text" id="idedtntusuario" placeholder="Nota al Usuario"><br>
         <label for="other">Nota al Lider</label>
-        <input  class="ideditexregvotan" type="text" id="idedtntreferido" placeholder="Nota al referido"><br><br><br><br>
+        <input  class="ideditexregvotan" type="text" id="idedtntreferido" placeholder="Nota al Lider"><br><br><br><br>
         <button id="idbtfirebase" onclick="getvalores();" > Guardar votante </button>
         <button id="idbtfirebase2" onclick="fabrirrreferidos();" >Lideres </button>
         <button id="idbtfirebase3" onclick="limpia();" > Nuevo votante </button>
@@ -1133,7 +1292,7 @@ z-index: 43;
 
 
 <div id="idmenulateral" >
-<h2>ELECCIONES</h2> <img id="logocamp" src="http://cr00.epimg.net/radio/imagenes/2014/01/17/nacional/1389966840_057336_1389976860_noticia_normal.jpg" >
+<h2>ELECCIONES</h2> <img id="logocamp" src="https://cdn.colombia.com/sdi/2018/11/26/desde-cuando-colombia-adopta-su-actual-bandera-688445.jpg" >
 
 
 
@@ -1219,7 +1378,7 @@ z-index: 43;
 
   
 
-   <div  id="divregrefder"><h2> Registrar Referido</h2> <button id="idbtregiref" onclick="registrarnuevoreferido();" >Guardar</button>
+   <div  id="divregrefder"><h2> Registrar Lider</h2> <button id="idbtregiref" onclick="registrarnuevoreferido();" >Guardar</button>
       <br>
       <input class="ideditexregvotanref" type="text" id="idnreftenota"  placeholder="Nota" title="Nota">
       <br><br>      <input class="ideditexregvotanref" type="text" id="idnrefnm"  placeholder="Nombre Completo" title="Nombre completo"><br><br>
@@ -1248,7 +1407,7 @@ z-index: 43;
   
 
   
-  <h2>Buscar referido</h2>
+  <h2>Buscar Lider</h2>
 
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
   
@@ -1673,6 +1832,18 @@ function funallamadalnodopl(nodo){
 
 var estacedula=false;
 var intcedula=1;
+
+
+
+var bolyacedula=false;
+
+var nobooexisteplaza=false;var boolsilatylng=false;
+
+var boolsicedula=false;
+var boolsinombre=false;
+var boolsicelular=false;
+var boolreferido=false;
+
 function fdecadena(){
 
 
@@ -1759,16 +1930,45 @@ else{ nobooexisteplaza=true;    objplazalatlng={direccion:direcci,lat:vlat,lng:v
 
 boolsipuedosubir=true;
 
-if(String(celular)!=""){celular=String(celular);if(celular.length==10){}
-else{stringmensajes=stringmensajes+"falta  elcelular";boolsipuedosubir=false}}
+if(String(celular)!=""){celular=String(celular);if(celular.length==10){boolsicelular=false;}
+else{ stringmensajes=stringmensajes+" falta  el celular, ";boolsicelular=true}}
 
-if(String(puest)==""){stringmensajes=stringmensajes+ " falta el puesto "}
-if(String(cedula)==""){stringmensajes=stringmensajes+" falta la cedula " ;boolsipuedosubir=false} 
-if(String( direcci)==""){stringmensajes=stringmensajes+" falta la direccion "} 
-if(String(referido)==""){stringmensajes=stringmensajes+" falta el referido "} 
-if(String(mesa)==""){stringmensajes=stringmensajes+" falta la mesa ";} 
-if(String(nombre)==""){stringmensajes=stringmensajes+" falta el nombre ";boolsipuedosubir=false} 
+if(String(puest)==""){stringmensajes=stringmensajes+ " falta el puesto, "}
+if(String(cedula)==""){stringmensajes=stringmensajes+" falta la cedula, " ;boolsicedula=true} 
+else{boolsicedula=false;}
+if(String( direcci)==""){stringmensajes=stringmensajes+" falta la direccion, "} 
+if(String(referido)==""){stringmensajes=stringmensajes+" falta el Lider , "; boolreferido=true;} 
+else{
+  boolreferido=false;
+}
+
+if(String(mesa)==""){stringmensajes=stringmensajes+" falta la mesa, ";} 
+
+if(String(nombre)==""){stringmensajes=stringmensajes+" falta el nombre, ";boolsinombre=true} 
+else{boolsinombre=false;}
+
+if(String(vlng)=="" ||String(vlat)==""){stringmensajes=stringmensajes+"  falta Latitud y longitud  ";boolsilatylng=true} 
+else{
+  boolsilatylng=false;
+}
+
+
 document.getElementById("idmensaje").style.display="block";
+document.getElementById("idbtmensajeaceptar").style.display="block";
+
+
+
+
+if(boolsicelular||boolsicedula||boolsilatylng||boolsinombre||boolreferido){document.getElementById("idbtmensajeaceptar").style.display="none";}
+//else{document.getElementById("idbtmensajeaceptar").style.display="block";}
+escribeidpmensaje(stringmensajes);
+//alert(boolsicelular+"   "+boolsicedula+"  "+boolsilatylng+"   "+boolsinombre+""+ boolreferido);
+
+
+
+/*
+
+
 if(boolsipuedosubir){document.getElementById("idbtmensajeaceptar").style.display="block";}
 else{document.getElementById("idbtmensajeaceptar").style.display="block";}
 escribeidpmensaje(stringmensajes)
@@ -1781,18 +1981,39 @@ document.getElementById("idmensaje").style.display="block";
 escribeidpmensaje("sin registro ")
 }
 
-if(bolyacedula){document.getElementById("idbtmensajeaceptar").style.display="none";}
+if(bolyacedula&&boolsilatylng){document.getElementById("idbtmensajeaceptar").style.display="none";}
 else{document.getElementById("idbtmensajeaceptar").style.display="block";}
+
+}
+*/
+  }
+
+
+  estacedula=false;
+intcedula=1;
+
+
+
+bolyacedula=false;
+
+ nobooexisteplaza=false;
+ boolsilatylng=false;
+
+ boolsicedula=false;
+boolsinombre=false;
+ boolsicelular=false;
+ boolreferido=false;
+
+
+
+ bollvo=false;
+ bollpl=false;
+ bollte=false;
+
 
 }
 
 
-
-
-
-var bolyacedula=true;
-
-var nobooexisteplaza=false;
 
 var stringmensajes="";
 function elquesubefirebasesivotante(){
@@ -2440,6 +2661,106 @@ function evalualfirecrud(){
 
 
 
+// solo el mapa  cuando falta la latitud y la longitud
+
+var map ;
+var marker ;
+
+function initMap1() {
+     map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,//4.680791, -74.234279
+          center: {lat: 4.680791, lng: -74.234279}
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+        });
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+             marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location,
+              draggable:true,title:"Puesto De Votacion "
+            });
+      
+            marker.addListener('dragend', function(e){
+          //  console.log(e.latLng.lat()+""+ e.latLng.lng());
+      //    mapamarklat=e.latLng.lat();
+      //    mapamarklng=e.latLng.lng();
+       //     document.getElementById("idlat").value=String(e.latLng.lat());
+        //    document.getElementById("idlng").value=String(e.latLng.lng());
+          //  map.center= {lat: marker.position.lat(), lng:marker.position.lng()}; 
+          map.setZoom(13);
+          map.setCenter(new google.maps.LatLng(marker.position.lat(), marker.position.lng()));
+          });
+   
+            marker.addListener('click', function(e){
+          //  console.log(e.latLng.lat()+""+ e.latLng.lng());
+      //    mapamarklat=e.latLng.lat();
+       //   mapamarklng=e.latLng.lng();
+      //      document.getElementById("idlat").value=String(e.latLng.lat());
+        //    document.getElementById("idlng").value=String(e.latLng.lng());
+        
+           // map.center=marker.position; //{lat: marker.position.lat(), lng:marker.position.lng()};  
+           map.setZoom(13);
+           map.setCenter(new google.maps.LatLng(marker.position.lat(), marker.position.lng()));
+          });
+   
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+var mapamarklat="";
+var mapamarklng="";
+
+function fidbutcerrarmaplatlng(){
+try {  mapamarklat=String(marker.position.lat());
+  mapamarklng= String(marker.position.lng());
+  
+} catch (error) {
+  
+}
+
+
+  document.getElementById("idfaltomap").style.display="none";
+  document.getElementById("idlat").value=String(mapamarklat);
+            document.getElementById("idlng").value=String(mapamarklng);
+}
+function fidbutcerrarmaplatlngopen(){
+
+  document.getElementById("idfaltomap").style.display="block";
+  vtempdepart=getempv("idedtdep");
+vtempmunicpio=getempv("idedtmun");
+vtempdireccion=getempv("idedtdr");
+vtemtofdo="COLOMBIA,"+vtempdepart+","+vtempmunicpio+","+vtempdireccion;
+document.getElementById('address').value=vtemtofdo;
+initMap1();
+
+}
+
+
+
+
+var vtempdepart="";
+var vtempmunicpio="";
+var vtempdireccion="";
+var vtemtofdo="";
+
+
+function getempv(st){
+ return document.getElementById(st).value;
+}
+
+
+document.getElementById("idfaltomap").style.display="NONE";
+
 
 
 
@@ -2449,5 +2770,8 @@ function evalualfirecrud(){
 </script>
 
 <script  src=""></script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV4ya46Yoag-iGeJb5SUwZ2q1Irx0UjnU&callback=initMap">
+ </script>
 </body>
 </html>
