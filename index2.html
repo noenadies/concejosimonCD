@@ -1016,7 +1016,7 @@ height: 100%;
 #floating-panel {
         position: absolute;
         top: 20%;
-        left: 25%;
+        left: 3%;
         z-index: 5;
         background-color: #fff;
         padding: 5px;
@@ -1026,8 +1026,9 @@ height: 100%;
         line-height: 30px;
         padding-left: 10px;
         z-index: 46;
-        width: 25%;
+        width:60%;
         height: 20%;
+        opacity: 0.7;
       }
 #address{
 
@@ -1063,23 +1064,74 @@ height: 100%;
 
 position: absolute;
 top: 5%;
-left: 90%;
-width: 100px;
-height: 60px;
+left: 83%;
+width: 70px;
+font-size: 14px;
 z-index: 65;
+text-align: center;
+padding: 1px;
+margin: auto;
       }
 
 
 
 
+#idbutcerrarmaplatlngop1{
+position: absolute;
+top: 70%;
+left: 2%;
+width: 60px;
+height: 30px;
+background-color: #0688fa;
+color: #ffffff;
+font-size: 9px;
+text-align: left;
+
+}
+
+#idbutcerrarmaplatlngop2{
+  position: absolute;
+top: 70%;
+left: 30%;
+width: 60px;
+height: 30px;
+background-color: #0688fa;
+color: #ffffff;
+font-size: 9px;
+text-align: center;
 
 
+}
+
+#submit{
+  position: absolute;
+top: 30%;
+left: 40%;
+width: 100px;
+height: 30px;
+background-color: #000000;
+color: #ffffff;
+font-size: 9px;
+text-align: center;
+opacity: 1;
+}
 
 
+#address{
+
+  position: absolute;
+top: 3%;
+left: 0%;
+width: 100%;
+
+background-color: #000000;
+color: #ffffff;
+font-size:16px;
+text-align: center;
+opacity: 1;
 
 
-
-
+}
 
 
 </style>   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -1127,7 +1179,11 @@ z-index: 65;
 <button id="idbutcerrarmaplatlng" onclick="fidbutcerrarmaplatlng();">Cerrar</button>
       <div id="floating-panel">
           <input id="address" type="textbox" value="Sydney, NSW">  <br>  <br>
-          <input id="submit" type="button" value="Geocode">
+          <input id="submit" type="button" value="Geocode"><br><br>
+        <dv> <button id="idbutcerrarmaplatlngop1" onclick="fidbutcerrarmaplatlngop1();">Direccion</button>
+          <button id="idbutcerrarmaplatlngop2" onclick="fidbutcerrarmaplatlngop2();">Puesto</button>
+        
+        </dv>  
         </div>
         <div id="map"></div>
 
@@ -1822,7 +1878,10 @@ function funallamadalnodopl(nodo){
     vunallamdaalnodopl=snapshot.val();
  //console.log("viene de  fire una llamada alnodo  pl");   
 // console.log(vunallamdaalnodopl);
- fdecadena(); console.log(321);
+ fdecadena();
+ 
+ 
+ // console.log(321);
 
 }, function (errorObject) {
  // console.log("The read failed: " + errorObject.code);
@@ -2112,7 +2171,9 @@ firebase.database().ref().child("referidos").on("child_added", function(data, pr
   // console.log("prevChildKey: " + prevChildKey);
 idrefnuevo=prevChildKey;
 
-console.log(idrefnuevo);try {
+//console.log(idrefnuevo);
+
+try {
   firebase.database().ref().child("referidos").child(String(idrefnuevo)).child("id").set(idrefnuevo);
 } catch (error) {
  // console.log(error.getval);
@@ -2665,13 +2726,14 @@ function evalualfirecrud(){
 
 var map ;
 var marker ;
-
+var markes=[];
+var geocoder ;
 function initMap1() {
      map = new google.maps.Map(document.getElementById('map'), {
           zoom: 7,//4.680791, -74.234279
           center: {lat: 4.680791, lng: -74.234279}
         });
-        var geocoder = new google.maps.Geocoder();
+   geocoder = new google.maps.Geocoder();
 
         document.getElementById('submit').addEventListener('click', function() {
           geocodeAddress(geocoder, map);
@@ -2679,38 +2741,44 @@ function initMap1() {
       }
 
       function geocodeAddress(geocoder, resultsMap) {
+
+      //  addMarker(resultsMap);
+
+
+        clearMarkers();
+
         var address = document.getElementById('address').value;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);
-             marker = new google.maps.Marker({
+
+
+            addMarker(resultsMap,results);
+
+/*
+markes.push({marker:new google.maps.Marker({
               map: resultsMap,
               position: results[0].geometry.location,
               draggable:true,title:"Puesto De Votacion "
-            });
+            })
+      });
+map.setZoom(13);
+    
       
-            marker.addListener('dragend', function(e){
-          //  console.log(e.latLng.lat()+""+ e.latLng.lng());
-      //    mapamarklat=e.latLng.lat();
-      //    mapamarklng=e.latLng.lng();
-       //     document.getElementById("idlat").value=String(e.latLng.lat());
-        //    document.getElementById("idlng").value=String(e.latLng.lng());
-          //  map.center= {lat: marker.position.lat(), lng:marker.position.lng()}; 
-          map.setZoom(13);
-          map.setCenter(new google.maps.LatLng(marker.position.lat(), marker.position.lng()));
+            markes[markes.length-1].marker.addListener('dragend', function(e){
+
+          map.setZoom(19);
+          map.setCenter(new google.maps.LatLng(
+            markes[markes.length-1].marker.position.lat(),
+             markes[markes.length-1].marker.position.lng()));
           });
    
-            marker.addListener('click', function(e){
-          //  console.log(e.latLng.lat()+""+ e.latLng.lng());
-      //    mapamarklat=e.latLng.lat();
-       //   mapamarklng=e.latLng.lng();
-      //      document.getElementById("idlat").value=String(e.latLng.lat());
-        //    document.getElementById("idlng").value=String(e.latLng.lng());
-        
-           // map.center=marker.position; //{lat: marker.position.lat(), lng:marker.position.lng()};  
-           map.setZoom(13);
-           map.setCenter(new google.maps.LatLng(marker.position.lat(), marker.position.lng()));
-          });
+          markes[markes.length-1].marker.addListener('click', function(e){
+
+           map.setZoom(19);
+           map.setCenter(new google.maps.LatLng( 
+             markes[markes.length-1].marker.position.lat(),  markes[markes.length-1].marker.position.lng()));
+          });*/
    
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
@@ -2721,8 +2789,8 @@ var mapamarklat="";
 var mapamarklng="";
 
 function fidbutcerrarmaplatlng(){
-try {  mapamarklat=String(marker.position.lat());
-  mapamarklng= String(marker.position.lng());
+try {  mapamarklat=String( markes[markes.length-1].marker.position.lat());
+  mapamarklng= String( markes[markes.length-1].marker.position.lng());
   
 } catch (error) {
   
@@ -2757,6 +2825,143 @@ document.getElementById('address').value=vtemtofdo;
 initMap1();
 
 }
+var idmimasrkes=1;
+function addMarker(resultsMap,results1) {
+
+if(markes.length>=2){clearMarkers();markes=[];}
+
+
+if(markes.length==0){
+
+ // geocodeAddress(geocoder, map);
+
+
+  markes.push({marker:new google.maps.Marker({
+              map: resultsMap,
+              position: results1[0].geometry.location,
+              draggable:true,title:"Puesto De Votacion "
+            })
+      });
+map.setZoom(13);
+map.setCenter(new google.maps.LatLng( 
+             markes[markes.length-1].marker.position.lat(),  markes[markes.length-1].marker.position.lng()));
+      
+            markes[markes.length-1].marker.addListener('dragend', function(e){
+
+          map.setZoom(19);
+          map.setCenter(new google.maps.LatLng(
+            markes[markes.length-1].marker.position.lat(),
+             markes[markes.length-1].marker.position.lng()));
+
+         
+
+
+          });
+   
+          markes[markes.length-1].marker.addListener('click', function(e){
+
+           map.setZoom(19);
+           map.setCenter(new google.maps.LatLng( 
+             markes[markes.length-1].marker.position.lat(),  markes[markes.length-1].marker.position.lng()));
+
+   
+
+          });
+
+
+
+
+
+}
+
+
+
+      }
+
+      function clearMarkers() {
+    //    markes[0].marker.setMap(null);
+        for(var i in markes){
+
+          markes[i].marker.setMap(null);
+        }
+        markes=[];
+      }
+
+
+
+
+
+
+
+
+function fidbutcerrarmaplatlngop1(){
+  clearMarkers();
+
+
+
+
+
+
+    
+    vtempdepart="";
+vtempmunicpio="";
+ vtempdireccion="";
+ vtemtofdo="";
+
+ vtempuesto="";
+
+  vtempuesto=getempv("idedtpt");
+
+  document.getElementById("idfaltomap").style.display="block";
+  vtempdepart=getempv("idedtdep");
+vtempmunicpio=getempv("idedtmun");
+vtempdireccion=getempv("idedtdr");
+vtemtofdo="COLOMBIA,"+vtempdepart+" "+vtempmunicpio+" "+  vtempdireccion;
+document.getElementById('address').value=vtemtofdo;
+//initMap1();
+
+geocodeAddress(geocoder, map);
+
+  
+
+}
+
+
+
+function  fidbutcerrarmaplatlngop2(){
+
+  clearMarkers();
+
+
+
+
+
+
+    
+vtempdepart="";
+vtempmunicpio="";
+vtempdireccion="";
+vtemtofdo="";
+
+vtempuesto="";
+
+vtempuesto=getempv("idedtpt");
+
+document.getElementById("idfaltomap").style.display="block";
+vtempdepart=getempv("idedtdep");
+vtempmunicpio=getempv("idedtmun");
+vtempdireccion=getempv("idedtdr");
+vtemtofdo="COLOMBIA,"+vtempdepart+" "+vtempmunicpio+" "+  vtempuesto;
+document.getElementById('address').value=vtemtofdo;
+//initMap1();
+
+geocodeAddress(geocoder, map);
+
+}
+
+
+
+
 
 
  
