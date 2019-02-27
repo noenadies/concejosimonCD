@@ -2734,32 +2734,35 @@ try {  mapamarklat=String(marker.position.lat());
             document.getElementById("idlng").value=String(mapamarklng);
 }
 function fidbutcerrarmaplatlngopen(){
+  vtempuesto=getempv("idedtpt");
 
   document.getElementById("idfaltomap").style.display="block";
   vtempdepart=getempv("idedtdep");
 vtempmunicpio=getempv("idedtmun");
-vtempdireccion=getempv("idedtdr");
-vtemtofdo="COLOMBIA,"+vtempdepart+","+vtempmunicpio+","+vtempdireccion;
+//vtempdireccion=getempv("idedtdr");
+vtemtofdo="COLOMBIA,"+vtempdepart+" "+vtempmunicpio+" "+  vtempuesto;
 document.getElementById('address').value=vtemtofdo;
 initMap1();
 
 }
 
 
-
+ 
 
 var vtempdepart="";
 var vtempmunicpio="";
 var vtempdireccion="";
 var vtemtofdo="";
 
-
+var   vtempuesto="";
 function getempv(st){
  return document.getElementById(st).value;
 }
 
 
-document.getElementById("idfaltomap").style.display="NONE";
+document.getElementById("idfaltomap").style.display="none";
+
+
 
 
 
