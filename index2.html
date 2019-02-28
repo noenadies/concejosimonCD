@@ -2742,7 +2742,8 @@ var soyadmimin=true;
 function fccrud(){
 
 
-evalualfirecrud();
+//evalualfirecrud(); 
+window.location="crud.html"
 }
 document.getElementById("idpanelpuedoabrircrud").style.display="none";
 
@@ -2750,15 +2751,15 @@ document.getElementById("idpanelpuedoabrircrud").style.display="none";
 var puedeabrircrudnombre="";
 var puedeabriricurdpass="";
 function fabrircrudreal(){
-
+/*
   puedeabrircrudnombre=document.getElementById("idinputpuedoabririnombre").value;
   puedeabriricurdpass=document.getElementById("idinputpuedoabriripass").value;
 for(var i in arrayadmin){
   if(arrayadmin[i].nombre==puedeabrircrudnombre&&arrayadmin[i].clave==puedeabriricurdpass){
     soyadmimin=true;
   }
-}
-  if(soyadmimin){
+}*/
+  if(true){
     soyadmimin=false;
   window.location="crud.html";
 }
