@@ -18,7 +18,7 @@ function inicia(){
       funatraefireadmi();
 
 }
-
+inicia();
 
 function segundoinicio() {
     
@@ -26,8 +26,7 @@ function segundoinicio() {
 
   // Initialize Firebase
 
-
-
+  funatraefireadmi();
 function funatraefireadmi(){
     firebase.database().ref().child(String("admin")).on("value", function(snapshot) {
   
@@ -41,7 +40,7 @@ function funatraefireadmi(){
   }
 
 
-function fbtlogin(){alert(777);
+function fbtlogin(){
  vinpnombre=getv("idinpnombre");
  vpass=String(getv("inppass"));
 console.log(vpass+"  aca");
